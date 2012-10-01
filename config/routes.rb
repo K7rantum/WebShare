@@ -1,12 +1,8 @@
 WebShare::Application.routes.draw do
   get "pages/home"
-
   get "pages/projects"
-
   get "pages/terms"
-
   get "pages/privacy"
-
   get "pages/contact"
 
   # The priority is based upon order of creation:
