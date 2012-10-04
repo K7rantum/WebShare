@@ -5,7 +5,11 @@
 
 # Enable parameter wrapping for JSON. You can disable this by setting :format to an empty array.
 ActiveSupport.on_load(:action_controller) do
+<<<<<<< HEAD
   wrap_parameters format: [:json]
+=======
+  wrap_parameters :format => [:json]
+>>>>>>> ad26b0fa014918a626bd47ec18ddd1d1945cc3a5
 end
 
 # Disable root element in JSON by default.
