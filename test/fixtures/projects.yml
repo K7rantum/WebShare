@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  projectName: MyString
+  category: MyString
+  numberOfFiles: 1
+  numberOfLikes: 1
+  numberOfComments: 1
+  thumbnailPath: MyString
+
+two:
+  projectName: MyString
+  category: MyString
+  numberOfFiles: 1
+  numberOfLikes: 1
+  numberOfComments: 1
+  thumbnailPath: MyString

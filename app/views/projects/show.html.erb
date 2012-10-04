@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Projectname:</b>
+  <%= @project.projectName %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @project.category %>
+</p>
+
+<p>
+  <b>Numberoffiles:</b>
+  <%= @project.numberOfFiles %>
+</p>
+
+<p>
+  <b>Numberoflikes:</b>
+  <%= @project.numberOfLikes %>
+</p>
+
+<p>
+  <b>Numberofcomments:</b>
+  <%= @project.numberOfComments %>
+</p>
+
+<p>
+  <b>Thumbnailpath:</b>
+  <%= @project.thumbnailPath %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
