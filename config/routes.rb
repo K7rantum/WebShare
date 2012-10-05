@@ -1,7 +1,17 @@
 WebShare::Application.routes.draw do
-  resources :projects
-
   resources :users
+  resources :projects
+  
+  match '/signup',  :to => 'users#new'
+  match '/signin',  :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
+
+  match '/contact', :to => 'pages#contact'
+  match '/about',   :to => 'pages#about'
+  match '/help',    :to => 'pages#help'
+
+  # load login page @ startup
+  root :to => 'sessions#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
