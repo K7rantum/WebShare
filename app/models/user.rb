@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
+  has_many :projects, :dependent => :destroy
+  
   # username validations
   validates :username, :presence => true,
 		        :length              => { :maximum => 30 }
