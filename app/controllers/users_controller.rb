@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   
   before_filter :correct_user, :only => [:edit, :update]
   
+  def new
+    @user  = User.new
+    @title = "Sign up"
+  end
+  
   def index
     @users = User.all
     @title = "Who's on WebShare"
@@ -10,11 +15,6 @@ class UsersController < ApplicationController
   def show
     @user  = User.find(params[:id])
     @title = @user.name
-  end
-
-  def new
-    @user  = User.new
-    @title = "Sign up"
   end
   
   def create
