@@ -12,8 +12,8 @@ WebShare::Application.routes.draw do
   # static pages
   match '/services',  :to => 'static_pages#services'
   match '/portfolio', :to => 'static_pages#portfolio'
-  match '/about',     :to => 'pages#about'
-  match '/help',      :to => 'pages#help'
+  match '/about',     :to => 'static_pages#about'
+  match '/help',      :to => 'static_pages#help'
   match '/contact',   :to => 'static_pages#contact'
   
   # startup = login
