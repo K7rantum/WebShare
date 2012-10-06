@@ -3,26 +3,22 @@
     <section id="index-bottom">
     	<section id="login">
     		<h2>Sign in</h2>
-            <form autocomplete="off">
-            	<label for="username">Username</label><br />
+            <%= form_for(:session, :url => sessions_path) do |f| %>
+            	<%= f.label :username %><br />
             	<section class="input_med" >
-                	<input name="username" size="" />
-                </section>
-                <label for="password">Password</label><br />
-                <section class="input_med" >
-                	<input name="password" size="" />
+                	<%= f.text_field :username %>
                 </section><br />
-                <button class="btn_med btn_lblue">
-                	<a href="#">Login</a>
-                </button>
+                <%= f.label :password %><br />
+                <section class="input_med" >
+                	<%= f.password_field :password %>
+                </section><br />
+                <%= f.submit "Login" %>
                 <a href="#" class="lnk_undecorated">Forgot your password?</a>
-            </form>
+			<% end %>
     	</section>
     	<section id="signup">
     		<h2>Not a member?</h2>
-            <button class="btn_med btn_lblue">
-            	<% link_to 'Sign up', new_user_path %>
-            </button>
+            <%= link_to "Sign up", signup_path %>
             <p>Here at WebShare we're all about community.<br>
             That's why we say <b>Booya!</b> when you share</p>
     	</section>

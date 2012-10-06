@@ -1,35 +1,45 @@
 class SessionsController < ApplicationController
   
+  attr_accessor :email, :password
+  
+  before_filter :authenticate
+  
   def new
-    @session = Session.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @session }
-    end
+    @title = "Sign in"
   end
 
   def create
-    @session = Session.new(params[:session])
-
-    respond_to do |format|
-      if @session.save
-        format.html { redirect_to @session, :notice => 'Session was successfully created.' }
-        format.json { render :json => @session, :status => :created, :location => @session }
-      else
-        format.html { render :action => "new" }
-        format.json { render :json => @session.errors, :status => :unprocessable_entity }
-      end
+    user = User.authenticate(params[:session][:email],
+                             params[:session][:password])
+    if user.nil?
+      flash.now[:error] = "Invalid email or password."
+      @title = "Sign in"
+      render 'new'
+    else
+      sign_in user
+      redirect_to user_path
     end
   end
 
   def destroy
-    @session = Session.find(params[:id])
-    @session.destroy
-
-    respond_to do |format|
-      format.html { redirect_to sessions_url }
-      format.json { head :no_content }
-    end
+    sign_out
+    redirect_to root_path
   end
+  
+  private
+  
+    def authenticate
+      unless session_has_been_associated?
+        self.match = User.find_by_email_and_password(self.email, self.password)
+      end
+      associate_session_to_user
+    end
+    
+    def associate_session_to_user
+      self.id ||= self.match.id
+    end
+    
+    def session_has_been_associated?
+      self.id
+    end
 end

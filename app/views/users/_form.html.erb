@@ -1,3 +1,5 @@
+<h1>Join the community.</h1>
+
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -10,28 +12,15 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
+    <%= f.text_field :username %><br />
     <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
+    <%= f.text_field :email %><br />
     <%= f.label :firstName %><br />
-    <%= f.text_field :firstName %>
-  </div>
-  <div class="field">
+    <%= f.text_field :firstName %><br />
     <%= f.label :lastName %><br />
-    <%= f.text_field :lastName %>
-  </div>
-  <div class="field">
+    <%= f.text_field :lastName %><br />
     <%= f.label :password %><br />
-    <%= f.text_field :password %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.password_field :password %><br />	
+    <%= f.submit "Start Now" %>
 <% end %>

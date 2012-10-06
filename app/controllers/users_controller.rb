@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate
+  
   before_filter :correct_user, :only => [:edit, :update]
   
   def index
@@ -24,6 +24,8 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to WebShare"
       redirect_to @user
     else
+      @title = "Sign up"
+      flash[:error] = "Welcome to WebShare"
       redirect_to new_user_path
     end
   end
