@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:session][:email].downcase)
+    user = User.find_by_email(params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       sign_in user
       redirect_to user_path
@@ -28,14 +28,16 @@ class SessionsController < ApplicationController
   private
   
     def authenticate
-      unless session_has_been_associated?
-        self.match = User.find_by_email_and_password(self.email, self.password)
+      if session_has_been_associated?
+        self.current_user = User.find_by_email_and_password(self.email, self.password)
+      else
+        associate_session_to_user
       end
-      associate_session_to_user
+      
     end
     
     def associate_session_to_user
-      self.id ||= self.match.id
+      self.id = self.match.id
     end
     
     def session_has_been_associated?

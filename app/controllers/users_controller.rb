@@ -1,3 +1,5 @@
+
+
 class UsersController < ApplicationController
   
   before_filter :correct_user, :only => [:edit, :update]
@@ -14,13 +16,14 @@ class UsersController < ApplicationController
 
   def show
     @user  = User.find(params[:id])
-    @title = @user.name
+    @title = @user.username
   end
   
   def create
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
+      current_user=(@user)
       flash[:success] = "Welcome to WebShare"
       redirect_to @user
     else
@@ -55,8 +58,13 @@ class UsersController < ApplicationController
   private
   
     def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_path) unless correct_user?(@user)
+      user = User.find(params[:id])
+      if authorized_user(user)
+        flash[:success] = "Click the Save button at any time to save your progress."
+      else
+        flash[:error] = "Here, you can edit your own profile."
+        redirect_to root_path
+      end
     end
     
 end
