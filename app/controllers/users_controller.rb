@@ -4,19 +4,14 @@ class UsersController < ApplicationController
   
   before_filter :correct_user, :only => [:edit, :update]
   
-  def new
-    @user  = User.new
-    @title = "Sign up"
-  end
-  
   def index
     @users = User.all
     @title = "Who's on WebShare"
   end
-
-  def show
-    @user  = User.find(params[:id])
-    @title = @user.username
+  
+  def new
+    @user  = User.new
+    @title = "Sign up"
   end
   
   def create
@@ -47,6 +42,11 @@ class UsersController < ApplicationController
       @title = "Edit user"
       render 'edit'
     end
+  end
+  
+  def show
+    @user  = User.find(params[:id])
+    @title = @user.username
   end
 
   def destroy

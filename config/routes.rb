@@ -2,7 +2,7 @@ WebShare::Application.routes.draw do
 
   resources :users
   resources :projects
-  resources :sessions
+  resources :sessions, :only => [:new, :create, :destroy]
 
   # user signup, signin, signout
   match '/signup',  :to => 'users#new'

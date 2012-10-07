@@ -1,8 +1,8 @@
-
+<% provide(:title, "Sign in") %>
 
     <section id="index-bottom">
     	<section id="login">
-    		<h2>Sign in</h2>
+    		<h1>Sign in</h1>
             <%= form_for(:session, :url => sessions_path) do |f| %>
             	<%= f.label :username %><br />
             	<section class="input_med" >
@@ -12,7 +12,7 @@
                 <section class="input_med" >
                 	<%= f.password_field :password %>
                 </section><br />
-                <%= f.submit "Login" %>
+                <%= f.submit "Sign in" %>
                 <a href="#" class="lnk_undecorated">Forgot your password?</a>
 			<% end %>
     	</section>
