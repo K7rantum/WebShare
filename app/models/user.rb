@@ -18,12 +18,11 @@
 require 'digest/sha2'
 
 class User < ActiveRecord::Base
-  attr_accessor :password
   attr_accessible :email, :username, :firstName, :lastName, :password, :password_confirmation
   
   has_secure_password
   
-  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  email_regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
   
   has_many :projects, :dependent => :destroy
   
@@ -33,11 +32,10 @@ class User < ActiveRecord::Base
   # email validations
   validates :email, :presence     => true,
           		      :format       => { :with => email_regex },
-          		      :uniqueness   => { :case_sensitive => false }
+          		      :uniqueness   => true
   # password validations
   validates :password, :presence     => true,
 		        :length                  => { :minimum => 6 }
-  # password_confirmation validations
   validates :password_confirmation, :presence => true
             
   before_save { self.email.downcase }
