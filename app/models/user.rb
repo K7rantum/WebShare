@@ -19,9 +19,10 @@ require 'digest/sha2'
 
 class User < ActiveRecord::Base
   attr_accessible :email, :username, :firstName, :lastName, :password, :password_confirmation
+  has_secure_password
   
   before_save { |user| user.email = email.downcase }
-  has_secure_password
+  before_save :create_remember_token
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -39,7 +40,6 @@ class User < ActiveRecord::Base
 		        :length                  => { :minimum => 7 }
   validates :password_confirmation, :presence => true
             
-  before_save { self.email.downcase }
   before_save :encrypt_password
   
   def has_password?(submitted_password)
@@ -53,6 +53,10 @@ class User < ActiveRecord::Base
   end
   
   private
+  
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
   
     def encrypt_password
       self.salt = make_salt unless has_password?(password)
