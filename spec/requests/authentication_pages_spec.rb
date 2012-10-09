@@ -5,7 +5,7 @@ describe "Authentication pages" do
   subject { page }
 
   describe "sign in" do
-    before { visit signin_path }
+    before { visit new_session_path }
 
     describe "with invalid information" do
       before { click_button "Sign in" }
@@ -15,10 +15,11 @@ describe "Authentication pages" do
  
     describe "with valid information" do
       user = FactoryGirl.create(:user)
-      visit signin_path
-      fill_in "Email", :with => user.email
-      fill_in "Password", :with => user.password
-      click_button "Sign in"
+      before do
+        fill_in "Email", :with => user.email
+        fill_in "Password", :with => user.password
+        click_button "Sign in"
+      end
       it { should have_selector('title', :text => full_title('')) }
       it { should have_link('Sign out') }
 
