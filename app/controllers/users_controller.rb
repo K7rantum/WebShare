@@ -18,13 +18,10 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      current_user=(@user)
-      flash[:success] = "Welcome to WebShare"
+      flash.now[:success] = "Welcome to WebShare"
       redirect_to @user
     else
-      @title = "Sign up"
-      flash[:error] = "Welcome to WebShare"
-      redirect_to new_user_path
+      render 'new'
     end
   end
 
@@ -57,11 +54,5 @@ class UsersController < ApplicationController
   
   def correct_user
     user = User.find(params[:id])
-    if authorized_user?(user)
-      flash[:success] = "Click the Save button at any time to save your progress."
-    else
-      flash[:error] = "Nope."
-      redirect_to root_path
-    end
   end
 end

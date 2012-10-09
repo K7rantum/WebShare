@@ -21,11 +21,11 @@ describe "User pages" do
   
   describe "Sign up" do
     before { visit signup_path }
-    let(:submit) { "Create my account" }
+    let(:submit) { "Start Now" }
     
     describe "with invalid info" do
       it "should not create user" do
-        expect { click_button "Start Now" }.not_to change(User, :count)
+        expect { click_button submit }.not_to change(User, :count)
       end
     end
     
@@ -38,7 +38,12 @@ describe "User pages" do
       end
       
       it "should create a user" do
-        expect { click_button "Start Now" }.to change(User, :count).by(1)
+        expect { click_button submit }.to change(User, :count).by(1)
+      end
+
+      describe "after saving the user" do
+        before { click_button submit }
+        it { should have_link('Sign out') }
       end
     end
   end
