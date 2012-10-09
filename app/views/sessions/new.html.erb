@@ -4,9 +4,9 @@
     	<section id="login">
     		<h1>Sign in</h1>
             <%= form_for(:session, :url => sessions_path) do |f| %>
-            	<%= f.label :username %><br />
+				<%= f.label :email %><br />
             	<section class="input_med" >
-                	<%= f.text_field :username %>
+                	<%= f.text_field :email %>
                 </section><br />
                 <%= f.label :password %><br />
                 <section class="input_med" >
@@ -14,7 +14,7 @@
                 </section><br />
                 <%= f.submit "Sign in" %>
                 <a href="#" class="lnk_undecorated">Forgot your password?</a>
-			<% end %>
+	    <% end %>
     	</section>
     	<section id="signup">
     		<h2>Not a member?</h2>

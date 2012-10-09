@@ -1,4 +1,4 @@
-
+include UsersHelper
 
 class UsersController < ApplicationController
   
@@ -55,16 +55,13 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
   
-  private
-  
-    def correct_user
-      user = User.find(params[:id])
-      if authorized_user(user)
-        flash[:success] = "Click the Save button at any time to save your progress."
-      else
-        flash[:error] = "Here, you can edit your own profile."
-        redirect_to root_path
-      end
+  def correct_user
+    user = User.find(params[:id])
+    if authorized_user?(user)
+      flash[:success] = "Click the Save button at any time to save your progress."
+    else
+      flash[:error] = "Nope."
+      redirect_to root_path
     end
-    
+  end
 end
