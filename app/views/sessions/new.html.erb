@@ -1,7 +1,7 @@
 <% provide(:title, "Sign in") %>
 
     <section id="index-bottom">
-    	<section id="login">
+    	<section id="signin">
     		<h1>Sign in</h1>
             <%= form_for(:session, :url => sessions_path) do |f| %>
 				<%= f.label :email %><br />
@@ -12,13 +12,17 @@
                 <section class="input_med" >
                 	<%= f.password_field :password %>
                 </section><br />
-                <%= f.submit "Sign in" %>
+                <button class="btn_med btn_lblue">
+				    <%= f.submit "Sign in" %>
+				</button>
                 <a href="#" class="lnk_undecorated">Forgot your password?</a>
 	    <% end %>
     	</section>
     	<section id="signup">
     		<h2>Not a member?</h2>
-            <%= link_to "Sign up", signup_path %>
+            <button class="btn_med btn_lblue">
+				<%= link_to "Sign up", signup_path %>
+			</button>
             <p>Here at WebShare we're all about community.<br>
             That's why we say <b>Booya!</b> when you share</p>
     	</section>

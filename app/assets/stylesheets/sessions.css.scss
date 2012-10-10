@@ -34,7 +34,7 @@ header {
 	margin-right:auto;
 }
 
-#login {
+#signin {
 	background-image:url('../images/index-left.png');
 	background-position:top left;
 	background-repeat:no-repeat;
@@ -45,15 +45,16 @@ header {
 	position:relative;
 }
 
-#login form {
+#signin form {
 	margin-top:20px;
 }
 
-#login label {
-	margin-left:100px;
+#signin label {
+	margin:6px 0px 0px 100px;
 	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size:14px;
-	line-height:32px;
+	text-indent:6px;
+	line-height:0px;
 	vertical-align:middle;
 	color:#E6E7E8;
 	text-shadow:0px 2px 0px #336699;
@@ -61,29 +62,34 @@ header {
 	-webkit-text-shadow:0px 2px 0px #336699;
 }
 
-#login input {
-	width:205px;
-	height:45px;
-	border:0;
-    font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	font-size:12px;
-	color:#EEE;
-	background:transparent;
-	padding-left:16px;
-}
-
-#login button {
+#signin .input_med {
 	margin-left:100px;
 }
 
-.lnk_undecorated {
-	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	font-size:14px;
-	color:#E6E7E8;
-	text-shadow:0px 2px 0px #336699;
-	-moz-text-shadow:0px 2px 0px #336699;
-	-webkit-text-shadow:0px 2px 0px #336699;
-	text-decoration:none;
+#signin .input_med input {
+	width: 202px;
+	height: 38px;
+	border: 0;
+	background: transparent;
+	padding-left: 16px;
+}
+
+#signin button {
+	margin-left:100px;
+}
+
+button input {
+	display: block;
+	padding: 10px 22px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 18px;
+	color: #09C;
+	background-color: #93D8EF;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px #DDD;
+	-moz-text-shadow: 1px 1px 0px #DDD;
+	-webkit-text-shadow: 1px 1px 0px #DDD;
+	border:0;
 }
 
 #signup {
@@ -97,8 +103,9 @@ header {
 	text-align:center;
 }
 
-#login h2, #signup h2 {
+#signin h1, #signup h2 {
     font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size:22px;
 	color:#E6E7E8;
 	text-shadow:0px 2px 0px #336699;
 	-moz-text-shadow:0px 2px 0px #336699;
@@ -108,28 +115,6 @@ header {
 
 #signup button {
 	margin-top:20px;
-}
-
-button a {
-	display:block;
-	padding:10px 22px;
-	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	font-size:18px;
-	color:#09C;
-	text-decoration:none;
-	text-shadow:1px 1px 0px #DDD;
-	-moz-text-shadow:1px 1px 0px #DDD;
-	-webkit-text-shadow:1px 1px 0px #DDD;
-}
-
-#signup a:active {
-	/* make button *click* down */
-}
-
-button a:hover {
-	text-shadow:1px 1px 0px #EEE;
-	-moz-text-shadow:1px 1px 0px #EEE;
-	-webkit-text-shadow:1px 1px 0px #EEE;
 }
 
 #signup p {
@@ -142,7 +127,9 @@ button a:hover {
 	-webkit-text-shadow:0px 2px 0px #336699;
 }
 
-/* Page elements */
+/* Repeat Styles */
+
+/* Buttons */
 
 .btn_med {
 	border:0;
@@ -158,6 +145,22 @@ button a:hover {
 	background-color:#93D8EF;
 }
 
+button a:link, button a:visited, button a:active {
+	display: block;
+	padding: 10px 22px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 18px;
+	color: #09C;
+	background-color: #93D8EF;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px #DDD;
+	-moz-text-shadow: 1px 1px 0px #DDD;
+	-webkit-text-shadow: 1px 1px 0px #DDD;
+	border:0;
+}
+
+/* Input Fields */
+
 .input_med {
 	background-image:url('../images/input_med.png');
 	background-position:top left;
@@ -165,9 +168,24 @@ button a:hover {
 	width:221px;
 	height:45px;
 	border:0;
-	margin-left:100px;
     font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size:12px;
 	color:#EEE;
 	position:relative;
+}
+
+/* Links */
+
+.lnk_undecorated {
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size:14px;
+	color:#E6E7E8;
+	text-shadow:0px 2px 0px #336699;
+	-moz-text-shadow:0px 2px 0px #336699;
+	-webkit-text-shadow:0px 2px 0px #336699;
+	text-decoration:none;
+}
+
+a:hover.lnk_undecorated {
+	color:#EEE;
 }

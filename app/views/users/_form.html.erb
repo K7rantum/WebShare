@@ -11,7 +11,9 @@
     </div>
   <% end %>
     <%= f.label :username %><br />
-    <%= f.text_field :username %><br />
+	<section class="input_med">
+      <%= f.text_field :username %>
+    </section>
     <%= f.label :email %><br />
     <%= f.text_field :email %><br />
     <%= f.label :firstName %><br />
@@ -22,5 +24,7 @@
     <%= f.password_field :password %><br />
     <%= f.label :password_confirmation, "Confirmation" %><br />
     <%= f.password_field :password_confirmation %><br />
-    <%= f.submit "Start Now" %>
+	<button class="btn_med btn_lblue">
+	  <%= f.submit "Start Now" %>
+    </button>
 <% end %>
