@@ -1,5 +1,9 @@
 <% provide(:title, "Sign in") %>
 
+<% if flash[:error] %>
+  <p class="error"><%= flash[:error] %></p>
+<% end %>
+
     <section id="index-bottom">
     	<section id="signin">
     		<h1>Sign in</h1>
