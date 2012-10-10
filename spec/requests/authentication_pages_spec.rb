@@ -8,7 +8,7 @@ describe "Authentication pages" do
     describe "with invalid information" do
       before { click_button "Sign in" }
       it { should have_selector('title', :text => full_title('')) }
-      it { should have_error_message('Invalid username/password combination.') }
+      it { should have_selector('p', :content => 'Invalid username/password combination.') }
     end
  
     describe "with valid information" do
