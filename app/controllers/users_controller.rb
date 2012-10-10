@@ -21,6 +21,7 @@ class UsersController < ApplicationController
       flash.now[:success] = "Welcome to WebShare"
       redirect_to @user
     else
+      flash.now[:error] = @user.errors
       render 'new'
     end
   end
@@ -33,6 +34,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
+      @user.save
+      sign_in @user
       flash[:success] = "Profile updated."
       redirect_to @user
     else
