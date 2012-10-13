@@ -1,32 +1,142 @@
 @import "bootstrap";
 
-/* universal styles (apply to all) */
+/* General tags (apply to all) */
 
-html {
+* {
+	padding:0;
+	margin:0;
 }
 
 body {
+	background-image:url('../images/bg-fade.png');
+	background-repeat:repeat-x;
+	background-position:top left;
+	background-color:#069;
 }
 
-section {
-}
-
-textarea {
-}
-
-.center {
-  text-align:center;
+ul, ol {
+	margin:0;
+	padding:0;
 }
 
 /* typography */
 
-h1, h2, h3, h4, h5, h6 {
+
+
+/* Header Navigation (top) */
+
+header {
+	width:100%;
+	height:40px;
+	background-color:#E3E3E3;
+	position:fixed;
+	border-bottom:1px solid #06C;
+	box-shadow:0px 2px 20px #06C;
+	-webkit-box-shadow:0px 2px 20px #06C;
+	-moz-box-shadow:0px 2px 20px #06C;
 }
 
-p {
+header div {
+	width:100%;
+	height:1px;
+	background-color:#FFF;
+	clear:both;
+	position:absolute;
+	bottom:0;
 }
 
-/* Buttons */
+header nav, header ul {
+	width:800px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+header li {
+	list-style-type:none;
+	text-align:center;
+	float:left;
+	width:128px;
+	margin-top:10px;
+}
+
+header img {
+	padding-top:2px;
+	float:left;
+}
+
+header a:link, header a:active, header a:visited {
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size:14px;
+	color:#06C;
+	text-shadow:0px 2px 0px #CCC;
+	-moz-text-shadow:0px 2px 0px #CCC;
+	-webkit-text-shadow:0px 2px 0px #CCC;
+	text-decoration:none;
+}
+
+/* Footer */
+
+footer {
+	width:100%;
+	height:30px;
+	background-color:#CCC;
+	border-top:1px solid #06C;
+	box-shadow:0px -2px 20px #06C;
+	-webkit-box-shadow:0px -2px 20px #06C;
+	-moz-box-shadow:0px -2px 20px #06C;
+	clear:both;
+}
+
+footer div {
+	width:100%;
+	height:1px;
+	background-color:#FFF;
+	clear:both;
+}
+
+footer nav, footer ul {
+	width:451px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+footer li {
+	list-style-type:none;
+	text-align:center;
+	float:left;
+	width:150px;
+	margin-top:5px;
+}
+
+footer a:link, footer a:active, footer a:visited {
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size:12px;
+	color:#06C;
+	text-shadow:0px 2px 0px #CCC;
+	-moz-text-shadow:0px 2px 0px #CCC;
+	-webkit-text-shadow:0px 2px 0px #CCC;
+	text-decoration:none;
+}
+
+/* Repeating styles */
+
+button a {
+	display:block;
+	padding:10px 22px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size:18px;
+	color:#09C;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #DDD;
+	-moz-text-shadow:1px 1px 0px #DDD;
+	-webkit-text-shadow:1px 1px 0px #DDD;
+}
+
+button a:hover {
+	text-shadow:1px 1px 0px #EEE;
+	-moz-text-shadow:1px 1px 0px #EEE;
+	-webkit-text-shadow:1px 1px 0px #EEE;
+}
 
 .btn_med {
 	border:0;
@@ -42,22 +152,6 @@ p {
 	background-color:#93D8EF;
 }
 
-button a:link, button a:visited, button a:active {
-	display: block;
-	padding: 10px 22px;
-	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	font-size: 18px;
-	color: #09C;
-	background-color: #93D8EF;
-	text-decoration: none;
-	text-shadow: 1px 1px 0px #DDD;
-	-moz-text-shadow: 1px 1px 0px #DDD;
-	-webkit-text-shadow: 1px 1px 0px #DDD;
-	border:0;
-}
-
-/* Input Fields */
-
 .input_med {
 	background-image:url('../images/input_med.png');
 	background-position:top left;
@@ -65,27 +159,18 @@ button a:link, button a:visited, button a:active {
 	width:221px;
 	height:45px;
 	border:0;
+	margin-left:100px;
     font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size:12px;
 	color:#EEE;
-	position:relative;
-}
-
-/* Links (not buttons) */
-
-a.lnk_undecorated:link, a.lnk_undecorated:active, a.lnk_undecorated:visited {
-	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	font-size:14px;
-	color:#E6E7E8;
-	text-shadow:0px 2px 0px #336699;
-	-moz-text-shadow:0px 2px 0px #336699;
-	-webkit-text-shadow:0px 2px 0px #336699;
-	text-decoration:none;
 }
 
 a.lnk_undecorated:hover {
-	background-color:transparent;
 	text-shadow:1px 1px 0px #3399CC;
 	-moz-text-shadow:1px 1px 0px #3399CC;
 	-webkit-text-shadow:1px 1px 0px #3399CC;
+}
+
+.center {
+  text-align:center;
 }

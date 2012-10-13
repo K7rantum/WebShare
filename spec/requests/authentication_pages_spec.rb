@@ -1,4 +1,4 @@
-describe "Authentication pages" do
+describe "Authentication" do
   
   subject { page }
 
@@ -12,10 +12,10 @@ describe "Authentication pages" do
     end
  
     describe "with valid information" do
+      let(:user) { FactoryGirl.create(:user) }
       before do
-        @user = FactoryGirl.create(:user)
-        fill_in "Email", :with => @user.email
-        fill_in "Password", :with => @user.password
+        fill_in "Email", :with => user.email
+        fill_in "Password", :with => user.password
         click_button "Sign in"
       end
       it { should have_selector('title', :text => full_title('')) }

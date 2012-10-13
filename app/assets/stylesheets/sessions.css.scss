@@ -2,30 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* General Tags */
+/* WebShare Logo (on signup) */
 
-* {
-	margin:0;
-	padding:0;
-}
-
-body {
-	/*background-color:#1C75BC;*/
-	background-image:url('../images/bg-fade.png');
-	background-repeat:repeat-x;
-	background-position:top left;
-	background-color:#069;
-}
-
-header {
+#logo {
 	background-image:url('../images/index-logo.png');
 	background-position:top left;
 	background-repeat:no-repeat;
 	width:900px;
-	height:463px;
+	height:373px;
 	margin-left:auto;
 	margin-right:auto;
+	padding-top:90px;
+	text-align:center;
 }
+
+#logo button {
+	margin-top:230px;
+}
+
+/* Sign in & Sign up */
 
 #index-bottom {
 	width:900px;
@@ -42,7 +37,6 @@ header {
 	height:434px;
 	float:left;
 	padding-top:50px;
-	position:relative;
 }
 
 #signin form {

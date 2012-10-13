@@ -10,11 +10,12 @@ WebShare::Application.routes.draw do
   match '/signout', :to => 'sessions#destroy'
 
   # static pages
-  match '/services',  :to => 'static_pages#services'
-  match '/portfolio', :to => 'static_pages#portfolio'
-  match '/about',     :to => 'static_pages#about'
-  match '/help',      :to => 'static_pages#help'
-  match '/contact',   :to => 'static_pages#contact'
+  match '/services',           :to => 'static_pages#services'
+  match '/about',              :to => 'static_pages#about'
+  match '/contact',            :to => 'static_pages#contact'
+  match '/termsandconditions', :to => 'static_pages#terms_and_conditions'
+  match '/privacypolicy',      :to => 'static_pages#privacy_policy'
+  match '/termsofservice',     :to => 'static_pages#terms_of_service'
   
   # startup = login
   root :to => 'sessions#new'
