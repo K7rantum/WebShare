@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'bootstrap-sass', '2.0.4'
+gem 'jquery-rails'
+gem 'paperclip'
+gem 'rmagick'
+gem 'nokogiri'
 
 group :development do
   gem 'capybara', '1.1.2'

@@ -1,35 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Projectname:</b>
+<section class="content">
+  
+  <b>Project name:</b>
   <%= @project.projectName %>
-</p>
 
-<p>
   <b>Category:</b>
   <%= @project.category %>
-</p>
 
-<p>
-  <b>Numberoffiles:</b>
+  <b>Number of files:</b>
   <%= @project.numberOfFiles %>
-</p>
 
-<p>
-  <b>Numberoflikes:</b>
+  <b>Number of likes:</b>
   <%= @project.numberOfLikes %>
-</p>
 
-<p>
-  <b>Numberofcomments:</b>
+  <b>Number of comments:</b>
   <%= @project.numberOfComments %>
-</p>
 
-<p>
-  <b>Thumbnailpath:</b>
-  <%= @project.thumbnailPath %>
-</p>
+  <b>Filename:</b>
+  <%= @project.projectFile %>
 
+  <b>Project Thumbnail:</b>
+  <%= image_tag @project.projectThumbnail.path %>
+</section>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

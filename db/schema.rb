@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121007034631) do
+ActiveRecord::Schema.define(:version => 20121101022446) do
 
   create_table "projects", :force => true do |t|
     t.string   "projectName"
@@ -20,8 +20,17 @@ ActiveRecord::Schema.define(:version => 20121007034631) do
     t.integer  "numberOfLikes"
     t.integer  "numberOfComments"
     t.string   "thumbnailPath"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.string   "projectFile_file_name"
+    t.string   "projectFile_content_type"
+    t.integer  "projectFile_file_size"
+    t.datetime "projectFile_updated_at"
+    t.string   "thumbnailFile_file_name"
+    t.string   "thumbnailFile_content_type"
+    t.integer  "thumbnailFile_file_size"
+    t.datetime "thumbnailFile_updated_at"
+    t.integer  "user_id"
   end
 
   create_table "sessions", :force => true do |t|

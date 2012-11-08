@@ -1,35 +1,24 @@
 class ProjectsController < ApplicationController
+  
+  before_filter :authenticate,    :only => [:new]
+  before_filter :authorized_user, :only => [:edit, :destroy]
+  
   # GET /projects
   # GET /projects.json
   def index
     @projects = Project.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @projects }
-    end
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @project }
-    end
   end
 
   # GET /projects/new
   # GET /projects/new.json
   def new
     @project = Project.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @project }
-    end
   end
 
   # GET /projects/1/edit
@@ -40,16 +29,13 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(params[:project])
-
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, :notice => 'Project was successfully created.' }
-        format.json { render :json => @project, :status => :created, :location => @project }
-      else
-        format.html { render :action => "new" }
-        format.json { render :json => @project.errors, :status => :unprocessable_entity }
-      end
+    @project = current_user.projects.build(params[:project])
+    if @project.save
+      flash[:success] = "Project was successfully created."
+      redirect_to root_path
+    else
+      flash[:error] = "Failed to make project."
+      render 'new'
     end
   end
 
@@ -57,15 +43,11 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.json
   def update
     @project = Project.find(params[:id])
-
-    respond_to do |format|
-      if @project.update_attributes(params[:project])
-        format.html { redirect_to @project, :notice => 'Project was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render :action => "edit" }
-        format.json { render :json => @project.errors, :status => :unprocessable_entity }
-      end
+    if @project.update_attributes(params[:project])
+      redirect_to @project
+      flash[:success] = "Project was successfully updated."
+    else
+      render 'edit'
     end
   end
 
@@ -74,10 +56,24 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-
-    respond_to do |format|
-      format.html { redirect_to projects_url }
-      format.json { head :no_content }
+  end
+  
+  # USER MUST BE SIGNED IN
+  # IN ORDER TO CREATE PROJECT
+  def authenticate
+    if !signed_in?
+      flash[:error] = "You must be signed in to create a project."
+      redirect_to root_path
+    end
+  end
+  
+  # USER MUST BE SIGNED IN
+  # IN ORDER TO EDIT PROJECT
+  def authorized_user
+    @project = current_user.projects.find_by_id(params[:id])
+    if @project.nil?
+      flash[:error] = "You can only edit your own projects."
+      redirect_to root_path
     end
   end
 end

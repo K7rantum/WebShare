@@ -42,7 +42,7 @@ describe "User pages" do
 
       describe "after saving the user" do
         before { click_button submit }
-        it { should have_link('Sign out') }
+        it { should have_selector('a', :text => 'Sign out') }
       end
     end
   end

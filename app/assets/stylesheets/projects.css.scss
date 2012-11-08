@@ -1,3 +1,53 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Project show page (top) */
+
+#project {
+	width:800px;
+	height:300px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#project_thumb {
+	width:200px;
+	height:150px;
+	border:1px solid #FFF;
+	float:left;
+	margin:0px 12px 0px 0px;
+}
+
+#project_thumb img {
+	width:200px;
+	height:150px;
+	border:1px solid #FFF;
+}
+
+#project h1 {
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+#project p {
+	margin-top:12px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+#project table {
+	margin-top:20px;
+}
+
+#project td {
+	width:150px;
+	border:1px solid #EEE;
+	padding:12px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size:12px;
+}
+
+#project_demo {
+	margin-left:300px;
+	clear:both;
+	margin-top:30px;
+}

@@ -30,7 +30,8 @@ class User < ActiveRecord::Base
   
   # username validations
   validates :username, :presence => true,
-		        :length              => { :maximum => 30 }
+		        :length              => { :maximum => 30 },
+            :uniqueness          => { :case_sensitive => false }
   # email validations
   validates :email, :presence     => true,
           		      :format       => { :with => VALID_EMAIL_REGEX },
