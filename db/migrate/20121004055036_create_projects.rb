@@ -6,7 +6,6 @@ class CreateProjects < ActiveRecord::Migration
       t.integer :numberOfFiles
       t.integer :numberOfLikes
       t.integer :numberOfComments
-      t.string :thumbnailPath
 
       t.timestamps
     end

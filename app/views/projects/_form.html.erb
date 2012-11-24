@@ -36,10 +36,6 @@
     <%= f.file_field :projectFile %>
   </div>
   <div class="field">
-    <%= f.label :projectThumbnail, 'Project Thumbnail Upload' %><br />
-    <%= f.file_field :projectThumbnail %>
-  </div>
-  <div class="field">
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
   <div class="actions">
