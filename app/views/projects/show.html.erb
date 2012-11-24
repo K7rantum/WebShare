@@ -8,20 +8,11 @@
   <b>Category:</b>
   <%= @project.category %>
 
-  <b>Number of files:</b>
-  <%= @project.numberOfFiles %>
-
-  <b>Number of likes:</b>
-  <%= @project.numberOfLikes %>
-
-  <b>Number of comments:</b>
-  <%= @project.numberOfComments %>
-
-  <b>Filename:</b>
-  <%= @project.projectFile %>
-
   <b>Thumbnail:</b>
-  <%= image_tag @project.projectFile %>
+  <%= image_tag @project.thumbnail(:thumb) %>
+  
+  <b>Web One Up:</b>
+  <iframe src="<%= @project.webOneUp %>" />
 </section>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

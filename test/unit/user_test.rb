@@ -13,6 +13,7 @@
 #  salt               :string(255)
 #  encrypted_password :string(255)
 #  password_digest    :string(255)
+#  remember_token     :string(255)
 #
 
 require 'test_helper'
